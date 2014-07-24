@@ -41,4 +41,12 @@ describe("numbers_in_words") do
   it("returns the written form of a number less than 10_000_000_000") do
     numbers_in_words(9_456_423_123).should(eq("nine billion four hundred fifty six million four hundred twenty three thousand one hundred twenty three"))
   end
+
+  it("returns the written form of a number less than 100_000_000_000") do
+    numbers_in_words(95_100_568_250).should(eq("ninety five billion one hundred million five hundred sixty eight thousand two hundred fifty"))
+  end
+
+  it("returns the written form of a number less than 1_000_000_000_000") do
+    numbers_in_words(895_100_568_250).should(eq("eight hundred ninety five billion one hundred million five hundred sixty eight thousand two hundred fifty"))
+  end
 end

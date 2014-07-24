@@ -34,6 +34,15 @@ def numbers_in_words digits
     solution = digit_hash.fetch(digit_string[0].to_i) + " hundred " + million_var + numbers_in_words(digit_string[1..-1].to_i)
   elsif digits < 10_000_000_000
     solution = digit_hash.fetch(digit_string[0].to_i) + " billion " + numbers_in_words(digit_string[1..-1].to_i)
+  elsif digits < 100_000_000_000
+    solution = numbers_in_words((digit_string[0..1]).to_i) + " billion " + numbers_in_words(digit_string[2..-1].to_i)
+  elsif digits < 1_000_000_000_000
+    if(digit_string[1..2] == "00")
+      billion_var = "billion "
+      else
+      billion_var = ""
+    end
+    solution = digit_hash.fetch(digit_string[0].to_i) + " hundred " + billion_var + numbers_in_words(digit_string[1..-1].to_i)
   end
   solution.strip
 end
